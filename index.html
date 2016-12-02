@@ -9,7 +9,7 @@
         html, body{
             height: 100%;
         }
-        video.fullscreen {
+        .fullscreen {
             position: fixed;
             top: 50%;
             left: 50%;
@@ -17,10 +17,26 @@
             min-height: 100%;
             width: auto;
             height: auto;
-            z-index: -100;
             transform: translate(-50%, -50%);
         }
+        .background{
+            z-index: -100;
+        }
+        .foreground{
+            z-index: 100;
+        }
+        .youtube_container{
+            background: #222;
+        }
+        .youtube{
+            padding: 2rem;
+        }
+        .youtube iframe{
+            width: 100%;
+            height: 600px;
+        }
         body {
+            position: relative;
             min-width: 600px;
             background-color: black;
             font-family: Montserrat, Arial Narrow, sans-serif;
@@ -28,10 +44,19 @@
             color: white;
             font-size: 1.2rem;
         }
+
+        a{
+            color: white;
+        }
+
+        a.btn{
+            text-underline: none;
+        }
+
         .content {
             text-align: right;
             background: rgba(0,0,0,0.7);
-            padding: 2rem;
+            padding: 1rem 3%;
             width: 33%;
             min-width: 400px;
             margin: -20px 2rem;
@@ -40,28 +65,67 @@
         .first{
             margin-top: 300px;
         }
+        #playbutton{
+            height: 128px;
+            width: 128px;
+            background-image: url('assets/play-circle-o-white.png');
+            background-size: cover;
+            opacity: 0.3;
+        }
+        @media (max-width: 670px) {
+            #playbutton{
+                position: absolute;
+                top: 150px;
+                left: 50%;
+                margin-left: -64px;
+            }
+
+        }
+        @media (min-width: 670px) {
+            #playbutton{
+                position: fixed;
+                top: 300px;
+                left: 500px;
+                z-index: 10;
+            }
+        }
+        @media (min-width: 1280px) {
+            #playbutton{
+                position: fixed;
+                top: 300px;
+                left: 41%;
+                z-index: 10;
+            }
+        }
+        #playbutton:hover{
+            opacity: 0.6;
+            cursor: pointer;
+        }
+        #unplaybutton{
+            width: 80px;
+            height: 80px;
+            opacity: 0.6;
+            background-image: url('assets/close-white.png');
+            background-size: cover;
+            float: right;
+        }
+        #unplaybutton:hover{
+            opacity: 1;
+            cursor: pointer;
+        }
+
         .award {
             height: 227px;
+            text-align: right;
             background-image: url('assets/leo_black_bg.png');
             background-size: cover;
             color: white;
-            padding: 2rem;
+            padding: 1rem 3%;
             width: 33%;
             min-width: 400px;
             margin:2rem;
             float: left;
             font-size: 1.2rem;
-        }
-        .reel_container{
-            background-color: #222;
-            width: 100%;
-        }
-        .reel{
-            padding: 5rem;
-        }
-        .reel_youtube{
-            width: 100%;
-            height: 100%;
         }
 
         .clearboth{
@@ -98,13 +162,22 @@
     7. could we sneak a low-res video in as a background, then parallax over it?
 
     -->
-    <video class="fullscreen" playsinline autoplay muted loop  id="bgvid">
+    <video class="fullscreen background" playsinline autoplay muted loop  id="bgvid">
         <source src="assets/2016_narrative_reel_cut_480p_no_sound.webm" type="video/webm">
         <source src="assets/2016_narrative_reel_cut_480p_no_sound.mp4" type="video/mp4">
     </video>
+    <div id="narrative_reel">
+    </div>
+
+    </div>
     <div class="content first">
         <h1>Naim Sutherland</h1>
-        <p class="follow">is the best goddamned cinematographer</p>
+        <p class="follow">cinematographer</p>
+        <a class="btn" href="#">Commercial Reel</a>
+        <a class="btn" href="#">Narrative Reel</a>
+    </div>
+    <div id="playbutton">
+
     </div>
     <div class="clearboth"></div>
     <div class="award">
@@ -112,6 +185,7 @@
         <p class="follow">Best Cinematography</p>
         </div>
     <div class="clearboth"></div>
+    <!--
     <div class="reel_container">
         <div class="reel">
             <h2>Narrative Reel</h2>
@@ -122,6 +196,7 @@
             <iframe class="reel_youtube" src="https://www.youtube.com/embed/Dyx4v1QFzhQ" frameborder="0" allowfullscreen></iframe>
         </div>
     </div>
+    -->
     <div class="content">
         <!--
         <img src="assets/leo_white.png" width="200px"/>
@@ -161,18 +236,33 @@
     <script>
         $(function(){
 
-            $(window).resize(function(){
+            function resizeYoutube(){
                 $('.reel_youtube').each(function(i, el){
                     console.log(el);
-                    console.log(window.innerHeight);
-                    $(el).css('height', window.innerHeight - 100);
+                    $(el).css('height', window.innerHeight - 150);
                 })
-            });
-            $('.reel_youtube').each(function(i, el){
-                console.log(el);
-                console.log(window.innerHeight);
-                $(el).css('height', window.innerHeight - 100);
-            })
+            };
+
+            function summonNarrativeReel(){
+                console.log("clicked");
+                $('#narrative_reel').append("<div class='fullscreen foreground youtube_container'>"+
+                        "<div class='youtube'>"+
+                        "<div id='unplaybutton'></div>"+
+                        "<h2>Narrative Reel</h2>"+
+                        "<iframe class='reel_youtube' src='https://www.youtube.com/embed/_XFt1GqaJuQ?autoplay=1' frameborder='0' autoplay allowfullscreen></iframe>"+
+                        "</div>"+
+                        "</div>");
+                resizeYoutube();
+                $("#unplaybutton").click(function(){
+                    console.log("clicked");
+                    $('#narrative_reel').html("");
+                });
+
+            };
+
+            $(window).resize(resizeYoutube);
+
+            $("#playbutton").click(summonNarrativeReel);
 
         })
     </script>
