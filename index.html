@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <title>Naim Sutherland</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
@@ -22,9 +23,22 @@
         .background{
             z-index: -100;
         }
+        .backgrounder{
+            z-index: -101;
+        }
         .foreground{
             z-index: 100;
         }
+        .backup_image{
+            background-color: black;
+            background: url("assets/2016_narrative_reel_1080p_no_sound_1088.jpg");
+            /*
+            background: url("assets/2016_narrative_reel_1080p_no_sound_1218.png");
+            */
+            background-size: cover;
+        }
+
+
         .youtube_container{
             background: #222;
         }
@@ -37,7 +51,6 @@
         }
         body {
             position: relative;
-            min-width: 600px;
             background-color: black;
             font-family: Montserrat, Arial Narrow, sans-serif;
             font-weight:100;
@@ -53,84 +66,76 @@
             text-underline: none;
         }
 
-        .content {
-            text-align: right;
-            background: rgba(0,0,0,0.7);
-            padding: 1rem 3%;
-            width: 33%;
-            min-width: 400px;
-            margin: -20px 2rem;
-            float: left;
+        .clearboth{
+            clear: both;
         }
-        .first{
-            margin-top: 300px;
-        }
-        #playbutton{
-            height: 128px;
-            width: 128px;
-            background-image: url('assets/play-circle-o-white.png');
-            background-size: cover;
-            opacity: 0.3;
-        }
-        @media (max-width: 670px) {
-            #playbutton{
-                position: absolute;
-                top: 150px;
-                left: 50%;
-                margin-left: -64px;
-            }
 
-        }
-        @media (min-width: 670px) {
-            #playbutton{
-                position: fixed;
-                top: 300px;
-                left: 500px;
-                z-index: 10;
+        @media (max-width: 700px) {
+            .content {
+                text-align: left;
+                background: rgba(0, 0, 0, 0.7);
+                padding: 1rem 3%;
+                width: 90%;
+                margin: 10px auto;
             }
         }
-        @media (min-width: 1280px) {
-            #playbutton{
-                position: fixed;
-                top: 300px;
-                left: 41%;
-                z-index: 10;
+        @media (min-width: 700px) {
+            .content {
+                text-align: right;
+                padding: 1rem 3%;
+                width: 33%;
+                min-width: 400px;
+                margin: 0.5rem 2rem;
+                float: left;
             }
         }
-        #playbutton:hover{
-            opacity: 0.6;
-            cursor: pointer;
+
+        .content img{
+            width: 100%;
         }
-        #unplaybutton{
+
+        .transparent_background{
+            background: rgba(0,0,0,0.7);
+        }
+        .award_background{
+            background: url('assets/leo_black_bg_lg.png') 1px -28px;
+            background-size: cover;
+        }
+
+        .first{
+            margin-top: 30%;
+        }
+
+        .playbtn{
+            text-transform: none;
+            text-decoration: none;
+            border: 2px solid white;
+            padding: 1rem 1rem 1rem 60px ;
+            border-radius: 5px;
+            background: url('assets/play-circle-o-white.png') no-repeat 5px 2px;
+            background-size: 50px 50px;
+            opacity: 0.4;
+        }
+
+        .playbtn:hover{
+            opacity: 1;
+        }
+
+        .quitbtn{
             width: 80px;
             height: 80px;
             opacity: 0.6;
             background-image: url('assets/close-white.png');
             background-size: cover;
             float: right;
+
         }
-        #unplaybutton:hover{
+
+        .quitbtn:hover{
             opacity: 1;
             cursor: pointer;
         }
 
-        .award {
-            height: 227px;
-            text-align: right;
-            background-image: url('assets/leo_black_bg.png');
-            background-size: cover;
-            color: white;
-            padding: 1rem 3%;
-            width: 33%;
-            min-width: 400px;
-            margin:2rem;
-            float: left;
-            font-size: 1.2rem;
-        }
-
-        .clearboth{
-            clear: both;
-        }
         h1 {
             font-size: 3rem;
             text-transform: uppercase;
@@ -162,28 +167,35 @@
     7. could we sneak a low-res video in as a background, then parallax over it?
 
     -->
-    <video class="fullscreen background" playsinline autoplay muted loop  id="bgvid">
-        <source src="assets/2016_narrative_reel_cut_480p_no_sound.webm" type="video/webm">
-        <source src="assets/2016_narrative_reel_cut_480p_no_sound.mp4" type="video/mp4">
-    </video>
-    <div id="narrative_reel">
+    <div id="video">
+    </div>
+    <div id="novideo" class="fullscreen background backup_image">
+    </div>
+    <div id="reel">
     </div>
 
     </div>
-    <div class="content first">
+    <div class="content first transparent_background">
         <h1>Naim Sutherland</h1>
         <p class="follow">cinematographer</p>
-        <a class="btn" href="#">Commercial Reel</a>
-        <a class="btn" href="#">Narrative Reel</a>
+        <p>
+            <a class="playbtn commercial" href="#" id="commercialbutton">Commercial Reel</a>
+            <a class="playbtn narrative" href="#" id="narrativebutton">Narrative Reel</a>
+        </p>
     </div>
-    <div id="playbutton">
 
     </div>
     <div class="clearboth"></div>
-    <div class="award">
+    <div class="content award_background">
         <h2>2016 Leo Award</h2>
         <p class="follow">Best Cinematography</p>
         </div>
+    <div class="clearboth"></div>
+
+    <div class="content transparent_background">
+        <!-- replace with an auto-schwifting schwifter -->
+        <img src="assets/awards_transparent.png"/>
+    </div>
     <div class="clearboth"></div>
     <!--
     <div class="reel_container">
@@ -197,31 +209,16 @@
         </div>
     </div>
     -->
-    <div class="content">
-        <!--
-        <img src="assets/leo_white.png" width="200px"/>
-        <img src="assets/leo_black.svg" width="200px"/>
-        -->
-
-        <h2>Reel</h2>
-        <p>
-
-        </p>
-
-
+    <div class="content transparent_background">
+        <h2>News</h2>
         <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas rhoncus tortor eu dolor tincidunt, in molestie quam aliquam. Curabitur ac odio id lectus rutrum interdum nec suscipit erat. Sed ut sagittis arcu, vitae varius sem. Vivamus nulla nunc, posuere suscipit pellentesque at, consequat sed quam. Integer vitae massa neque. Cras accumsan ligula nec eros bibendum vestibulum in id augue. In vestibulum lacus et hendrerit elementum. Fusce placerat at lorem in semper. Morbi dapibus maximus enim, ut sollicitudin justo placerat sed. Quisque a suscipit felis. Sed at ipsum facilisis, tempus ante non, hendrerit mi. Quisque mattis, mi vel dignissim bibendum, diam ipsum vehicula nisl, eu pretium augue elit imperdiet lorem. Quisque cursus vitae sem eget condimentum. Nam porta imperdiet blandit.
         </p>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas rhoncus tortor eu dolor tincidunt, in molestie quam aliquam. Curabitur ac odio id lectus rutrum interdum nec suscipit erat. Sed ut sagittis arcu, vitae varius sem. Vivamus nulla nunc, posuere suscipit pellentesque at, consequat sed quam. Integer vitae massa neque. Cras accumsan ligula nec eros bibendum vestibulum in id augue. In vestibulum lacus et hendrerit elementum. Fusce placerat at lorem in semper. Morbi dapibus maximus enim, ut sollicitudin justo placerat sed. Quisque a suscipit felis. Sed at ipsum facilisis, tempus ante non, hendrerit mi. Quisque mattis, mi vel dignissim bibendum, diam ipsum vehicula nisl, eu pretium augue elit imperdiet lorem. Quisque cursus vitae sem eget condimentum. Nam porta imperdiet blandit.
-        </p>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas rhoncus tortor eu dolor tincidunt, in molestie quam aliquam. Curabitur ac odio id lectus rutrum interdum nec suscipit erat. Sed ut sagittis arcu, vitae varius sem. Vivamus nulla nunc, posuere suscipit pellentesque at, consequat sed quam. Integer vitae massa neque. Cras accumsan ligula nec eros bibendum vestibulum in id augue. In vestibulum lacus et hendrerit elementum. Fusce placerat at lorem in semper. Morbi dapibus maximus enim, ut sollicitudin justo placerat sed. Quisque a suscipit felis. Sed at ipsum facilisis, tempus ante non, hendrerit mi. Quisque mattis, mi vel dignissim bibendum, diam ipsum vehicula nisl, eu pretium augue elit imperdiet lorem. Quisque cursus vitae sem eget condimentum. Nam porta imperdiet blandit.
-        </p>
+    </div>
+    <div class="clearboth"></div>
 
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas rhoncus tortor eu dolor tincidunt, in molestie quam aliquam. Curabitur ac odio id lectus rutrum interdum nec suscipit erat. Sed ut sagittis arcu, vitae varius sem. Vivamus nulla nunc, posuere suscipit pellentesque at, consequat sed quam. Integer vitae massa neque. Cras accumsan ligula nec eros bibendum vestibulum in id augue. In vestibulum lacus et hendrerit elementum. Fusce placerat at lorem in semper. Morbi dapibus maximus enim, ut sollicitudin justo placerat sed. Quisque a suscipit felis. Sed at ipsum facilisis, tempus ante non, hendrerit mi. Quisque mattis, mi vel dignissim bibendum, diam ipsum vehicula nisl, eu pretium augue elit imperdiet lorem. Quisque cursus vitae sem eget condimentum. Nam porta imperdiet blandit.
-        </p>
+    <div class="content transparent_background">
+        <h2>Resume</h2>
         <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas rhoncus tortor eu dolor tincidunt, in molestie quam aliquam. Curabitur ac odio id lectus rutrum interdum nec suscipit erat. Sed ut sagittis arcu, vitae varius sem. Vivamus nulla nunc, posuere suscipit pellentesque at, consequat sed quam. Integer vitae massa neque. Cras accumsan ligula nec eros bibendum vestibulum in id augue. In vestibulum lacus et hendrerit elementum. Fusce placerat at lorem in semper. Morbi dapibus maximus enim, ut sollicitudin justo placerat sed. Quisque a suscipit felis. Sed at ipsum facilisis, tempus ante non, hendrerit mi. Quisque mattis, mi vel dignissim bibendum, diam ipsum vehicula nisl, eu pretium augue elit imperdiet lorem. Quisque cursus vitae sem eget condimentum. Nam porta imperdiet blandit.
         </p>
@@ -234,7 +231,18 @@
             crossorigin="anonymous"></script>
 
     <script>
+        /**
+         * jQuery.browser.mobile (http://detectmobilebrowser.com/)
+         *
+         * jQuery.browser.mobile will be true if the browser is a mobile device
+         *
+         **/
+        (function(a){(jQuery.browser=jQuery.browser||{}).mobile=/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4))})(navigator.userAgent||navigator.vendor||window.opera);
+    </script>
+
+    <script>
         $(function(){
+
 
             function resizeYoutube(){
                 $('.reel_youtube').each(function(i, el){
@@ -243,26 +251,71 @@
                 })
             };
 
+            function waitUntilVideoIsLoaded(fn){
+                var video = $("#bgvid").get()[0];
+                console.log(video);
+                if(video.readyState === 4){
+                    fn();
+                }
+                else{
+                    console.log('video is not loaded yet');
+                    setTimeout(function(){waitUntilVideoIsLoaded(fn);}, 250);
+                }
+            }
+
+            function summonSplashVideo(){
+                $("#video").append("<video class='fullscreen backgrounder' playsinline autoplay muted loop  id='bgvid'>"+
+                        "<source src='assets/2016_narrative_reel_cut_480p_no_sound.webm' type='video/webm'>"+
+                        "<source src='assets/2016_narrative_reel_cut_480p_no_sound.mp4' type='video/mp4'>"+
+                    "</video>");
+                waitUntilVideoIsLoaded(function(){
+                    $("#novideo").remove();
+                })
+            }
+
+            if(!jQuery.browser.mobile){
+                console.log("Activate the cool features!");
+                summonSplashVideo();
+            } else {
+                console.log("No no, do not activate the cool features!");
+            }
+
             function summonNarrativeReel(){
-                console.log("clicked");
-                $('#narrative_reel').append("<div class='fullscreen foreground youtube_container'>"+
+                $('#reel').append("<div class='fullscreen foreground youtube_container'>"+
                         "<div class='youtube'>"+
-                        "<div id='unplaybutton'></div>"+
+                        "<div id='unnarrativebutton' class='quitbtn'></div>"+
                         "<h2>Narrative Reel</h2>"+
                         "<iframe class='reel_youtube' src='https://www.youtube.com/embed/_XFt1GqaJuQ?autoplay=1' frameborder='0' autoplay allowfullscreen></iframe>"+
                         "</div>"+
                         "</div>");
                 resizeYoutube();
-                $("#unplaybutton").click(function(){
+                $("#unnarrativebutton").click(function(){
                     console.log("clicked");
-                    $('#narrative_reel').html("");
+                    $('#reel').html("");
+                });
+
+            };
+
+            function summonCommercialReel(){
+                $('#reel').append("<div class='fullscreen foreground youtube_container'>"+
+                        "<div class='youtube'>"+
+                        "<div id='uncommercialbutton' class='quitbtn'></div>"+
+                        "<h2>Commercial Reel</h2>"+
+                        "<iframe class='reel_youtube' src='https://www.youtube.com/embed/DlFaA08jhQY?autoplay=1' frameborder='0' autoplay allowfullscreen></iframe>"+
+                        "</div>"+
+                        "</div>");
+                resizeYoutube();
+                $("#uncommercialbutton").click(function(){
+                    console.log("clicked");
+                    $('#reel').html("");
                 });
 
             };
 
             $(window).resize(resizeYoutube);
 
-            $("#playbutton").click(summonNarrativeReel);
+            $("#narrativebutton").click(summonNarrativeReel);
+            $("#commercialbutton").click(summonCommercialReel);
 
         })
     </script>
