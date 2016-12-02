@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Naim Sutherland</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+    <style>
+        video.fullscreen {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -100;
+            transform: translate(-50%, -50%);
+        }
+        .content {
+            font-family: Montserrat, Arial Narrow, sans-serif;
+            font-weight:100;
+            background: rgba(0,0,0,0.3);
+            color: white;
+            padding: 2rem;
+            width: 33%;
+            min-width: 650px;
+            margin:2rem;
+            float: left;
+            font-size: 1.2rem;
+        }
+        h1 {
+            font-size: 3rem;
+            text-transform: uppercase;
+            margin-top: 0;
+            letter-spacing: .3rem;
+        }
+    </style>
+</head>
+<body>
+    <!--
+    Let's start with some notes:
+
+    1. Narrative & Commercial Reels
+    2. CV (PDF?)
+    3. Still frames on a splash page
+    4. Awards highlighted on a splash page (+ Leo award)
+    5. Mobile swiggity swoog
+    6. Where the hell are you hosting this thing? The load times are off the charts!
+    7. could we sneak a low-res video in as a background, then parallax over it?
+
+    -->
+    <video class="fullscreen" playsinline autoplay muted loop  id="bgvid">
+        <source src="assets/2016_narrative_reel_cut_480p_no_sound.webm" type="video/webm">
+        <source src="assets/2016_narrative_reel_cut_480p_no_sound.mp4" type="video/mp4">
+    </video>
+    <div class="content">
+        <h1>naim sutherland</h1>
+        <p>is the best goddamned cinematographer</p>
+
+
+    </div>
+
+
+
+
+
+</body>
+</html>
