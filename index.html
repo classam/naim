@@ -6,6 +6,9 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
     <style>
+        html, body{
+            height: 100%;
+        }
         video.fullscreen {
             position: fixed;
             top: 50%;
@@ -20,26 +23,24 @@
         body {
             min-width: 600px;
             background-color: black;
-            text-align: right;
-        }
-        .content {
             font-family: Montserrat, Arial Narrow, sans-serif;
             font-weight:100;
-            background: rgba(0,0,0,0.7);
             color: white;
+            font-size: 1.2rem;
+        }
+        .content {
+            text-align: right;
+            background: rgba(0,0,0,0.7);
             padding: 2rem;
             width: 33%;
             min-width: 400px;
-            margin: 10px 2rem;
+            margin: -20px 2rem;
             float: left;
-            font-size: 1.2rem;
         }
         .first{
             margin-top: 300px;
         }
         .award {
-            font-family: Montserrat, Arial Narrow, sans-serif;
-            font-weight:100;
             height: 227px;
             background-image: url('assets/leo_black_bg.png');
             background-size: cover;
@@ -51,6 +52,18 @@
             float: left;
             font-size: 1.2rem;
         }
+        .reel_container{
+            background-color: #222;
+            width: 100%;
+        }
+        .reel{
+            padding: 5rem;
+        }
+        .reel_youtube{
+            width: 100%;
+            height: 100%;
+        }
+
         .clearboth{
             clear: both;
         }
@@ -99,6 +112,16 @@
         <p class="follow">Best Cinematography</p>
         </div>
     <div class="clearboth"></div>
+    <div class="reel_container">
+        <div class="reel">
+            <h2>Narrative Reel</h2>
+            <iframe class="reel_youtube" src="https://www.youtube.com/embed/_XFt1GqaJuQ" frameborder="0" allowfullscreen></iframe>
+            <h2>Cinema Reel</h2>
+            <iframe class="reel_youtube" src="https://www.youtube.com/embed/DlFaA08jhQY" frameborder="0" allowfullscreen></iframe>
+            <h2>Reel 2 Real</h2>
+            <iframe class="reel_youtube" src="https://www.youtube.com/embed/Dyx4v1QFzhQ" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
     <div class="content">
         <!--
         <img src="assets/leo_white.png" width="200px"/>
@@ -128,6 +151,31 @@
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas rhoncus tortor eu dolor tincidunt, in molestie quam aliquam. Curabitur ac odio id lectus rutrum interdum nec suscipit erat. Sed ut sagittis arcu, vitae varius sem. Vivamus nulla nunc, posuere suscipit pellentesque at, consequat sed quam. Integer vitae massa neque. Cras accumsan ligula nec eros bibendum vestibulum in id augue. In vestibulum lacus et hendrerit elementum. Fusce placerat at lorem in semper. Morbi dapibus maximus enim, ut sollicitudin justo placerat sed. Quisque a suscipit felis. Sed at ipsum facilisis, tempus ante non, hendrerit mi. Quisque mattis, mi vel dignissim bibendum, diam ipsum vehicula nisl, eu pretium augue elit imperdiet lorem. Quisque cursus vitae sem eget condimentum. Nam porta imperdiet blandit.
         </p>
     </div>
+
+    <!-- jQuery -->
+    <script
+            src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous"></script>
+
+    <script>
+        $(function(){
+
+            $(window).resize(function(){
+                $('.reel_youtube').each(function(i, el){
+                    console.log(el);
+                    console.log(window.innerHeight);
+                    $(el).css('height', window.innerHeight - 100);
+                })
+            });
+            $('.reel_youtube').each(function(i, el){
+                console.log(el);
+                console.log(window.innerHeight);
+                $(el).css('height', window.innerHeight - 100);
+            })
+
+        })
+    </script>
 
 
 
