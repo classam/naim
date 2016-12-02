@@ -6,6 +6,8 @@
     <title>Naim Sutherland</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
+    <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+
     <style>
         html, body{
             height: 100%;
@@ -193,8 +195,13 @@
     <div class="clearboth"></div>
 
     <div class="content transparent_background">
+        <div class="award_dance">
+            <div><img src="assets/award_1.png" /></div>
+            <div><img src="assets/award_2.png" /></div>
+        </div>
         <!-- replace with an auto-schwifting schwifter -->
-        <img src="assets/awards_transparent.png"/>
+        <!-- <img src="assets/awards_transparent.png"/>
+        -->
     </div>
     <div class="clearboth"></div>
     <!--
@@ -229,6 +236,8 @@
             src="https://code.jquery.com/jquery-2.2.4.min.js"
             integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
             crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
 
     <script>
         /**
@@ -312,14 +321,22 @@
 
             };
 
-            $(window).resize(resizeYoutube);
-
             $("#narrativebutton").click(summonNarrativeReel);
             $("#commercialbutton").click(summonCommercialReel);
 
+            $('.award_dance').slick({
+                slidesToShow:2,
+                slidesToScroll:1,
+                variableWidth:true,
+                centerMode: true,
+                infinite:true,
+                speed: 300,
+                autoplay: true,
+                autoplaySpeed: 2000,
+            });
+
         })
     </script>
-
 
 
 
