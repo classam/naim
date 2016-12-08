@@ -1,0 +1,145 @@
+html, body{
+    height: 100%;
+}
+body{
+    background-color: black;
+    background-size: cover !important;
+    background-attachment: fixed !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    position: relative;
+    font-family: Montserrat, Arial Narrow, sans-serif;
+    font-weight:100;
+    color: white;
+    font-size: 1.2rem;
+}
+
+a{
+    color: white;
+}
+
+a.btn{
+    text-underline: none;
+}
+
+h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin-top: 0;
+    letter-spacing: .3rem;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #DDD;
+    text-transform: uppercase;
+    letter-spacing: .3rem;
+}
+
+.clearboth{
+    clear: both;
+}
+
+@media (max-width: 700px) {
+    .content {
+        text-align: left;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 1rem 3%;
+        width: 90%;
+        margin: 10px auto;
+    }
+    nav{
+        padding: 0;
+        width: 90%;
+        margin: 10px auto;
+    }
+}
+@media (min-width: 700px) {
+    .content {
+        text-align: right;
+        padding: 1rem 3%;
+        width: 33%;
+        min-width: 400px;
+        margin: 0.5rem 2rem;
+        float: left;
+    }
+    nav{
+        padding: 0;
+        width: 39%;
+        min-width: 400px;
+        margin: 0.5rem 2rem;
+        float: left;
+    }
+}
+
+nav ul{
+    padding: 0;
+    margin: 0;
+}
+nav li{
+    display: block;
+    width: 30.66%;
+    padding: 1%;
+    margin: 0;
+    min-width: 100px;
+    float: left;
+    background: rgba(0,0,0,0.7);
+    text-align: center;
+}
+nav li:first-child{
+    margin-right: 1%;
+}
+nav li:last-child{
+    margin-left: 1%;
+}
+
+nav li a{
+    display: block;
+    width: 100%;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    opacity: 0.7;
+}
+
+nav li a:hover{
+    opacity: 1;
+}
+
+.transparent_background{
+    background: rgba(0,0,0,0.7);
+}
+
+.award_background{
+    background: url('assets/leo_black_bg_lg.png') 1px -28px;
+    background-size: cover;
+}
+
+.follow{
+    margin-top: -20px;
+    margin-bottom: 100px;
+}
+
+.first{
+    margin-top: 30%;
+}
+
+.playbtn{
+    display: block;
+    float: right;
+    text-transform: none;
+    text-decoration: none;
+    min-width: 175px;
+    border: 2px solid white;
+    padding: 1rem 1rem 1rem 60px ;
+    margin: 0.5rem;
+    border-radius: 5px;
+    background: url('assets/play-circle-o-white.png') no-repeat 5px 2px;
+    background-size: 50px 50px;
+    opacity: 0.4;
+}
+
+.playbtn:hover{
+    opacity: 1;
+}
+

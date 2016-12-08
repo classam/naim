@@ -1,0 +1,30 @@
+
+.foreground{
+    z-index: 100;
+}
+.youtube_container{
+    background: #222;
+}
+.youtube{
+    padding: 2rem;
+}
+.youtube iframe{
+    width: 100%;
+    height: 600px;
+}
+
+.quitbtn{
+    width: 80px;
+    height: 80px;
+    opacity: 0.6;
+    background-image: url('assets/close-white.png');
+    background-size: cover;
+    float: right;
+
+}
+
+.quitbtn:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+
