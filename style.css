@@ -11,7 +11,8 @@ body{
     font-family: Montserrat, Arial Narrow, sans-serif;
     font-weight:100;
     color: white;
-    font-size: 1.05rem;
+    margin: 0;
+    padding: 0;
 }
 
 a{
@@ -149,11 +150,18 @@ nav li a:hover{
 
 .slider_container{
     width: 100%;
+    margin-left: 0;
+    margin-right: 0;
     background-color: #222;
-    padding: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 .slider_container:nth-of-type(odd){
     background-color: #333 !important;
+}
+
+.slider_container h3{
+    margin-left: 2rem;
 }
 
 .slider {
