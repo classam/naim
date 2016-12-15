@@ -143,3 +143,47 @@ nav li a:hover{
     opacity: 1;
 }
 
+.project{
+    padding: 2rem;
+}
+
+.slider_container{
+    width: 100%;
+    background-color: #222;
+    padding: 2rem;
+}
+.slider_container:nth-of-type(odd){
+    background-color: #333 !important;
+}
+
+.slider {
+    width: 90%;
+    margin: auto;
+}
+.slider iframe{
+    width: 95%;
+    height: 600px;
+}
+
+.slider div{
+    background-color: #111;
+    padding: 1rem;
+}
+
+.slider div p {
+    width: 400px;
+    margin: 2rem auto;
+}
+
+.slider img{
+    max-width: 95%;
+}
+
+.content ul li{
+    list-style-type: none;
+    margin: 0.5rem;
+}
+.content ul li:nth-child(even){
+    background: rgba(0,0,0,0.3);
+}
+
