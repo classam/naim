@@ -35,8 +35,8 @@
         <p class="follow">cinematographer</p>
 
         <p>
-            <a class="playbtn commercial" href="#" id="commercialbutton">Commercial Reel</a>
-            <a class="playbtn narrative" href="#" id="narrativebutton">Narrative Reel</a>
+            <a class="playbtn commercial" href="./commercial_reel.html" id="commercialbutton">Commercial Reel</a>
+            <a class="playbtn narrative" href="./narrative_reel.html" id="narrativebutton">Narrative Reel</a>
         </p>
         <div class="clearboth"></div>
     </div>
@@ -49,56 +49,6 @@
             src="https://code.jquery.com/jquery-2.2.4.min.js"
             integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
             crossorigin="anonymous"></script>
-
-    <script>
-        $(function(){
-            function resizeYoutube(){
-                $('.reel_youtube').each(function(i, el){
-                    console.log(el);
-                    $(el).css('height', window.innerHeight - 150);
-                })
-            };
-
-            function summonNarrativeReel(){
-                $('#reel').append("<div class='fullscreen foreground youtube_container'>"+
-                        "<div class='youtube'>"+
-                        "<div id='unnarrativebutton' class='quitbtn'></div>"+
-                        "<h2>Narrative Reel</h2>"+
-                        "<iframe class='reel_youtube' src='https://www.youtube.com/embed/_XFt1GqaJuQ?autoplay=1' frameborder='0' autoplay allowfullscreen></iframe>"+
-                        "</div>"+
-                        "</div>");
-                resizeYoutube();
-                $("#unnarrativebutton").click(function(){
-                    console.log("clicked");
-                    $('#reel').html("");
-                });
-
-            };
-
-            function summonCommercialReel(){
-                $('#reel').append("<div class='fullscreen foreground youtube_container'>"+
-                        "<div class='youtube'>"+
-                        "<div id='uncommercialbutton' class='quitbtn'></div>"+
-                        "<h2>Commercial Reel</h2>"+
-                        "<iframe class='reel_youtube' src='https://www.youtube.com/embed/DlFaA08jhQY?autoplay=1' frameborder='0' autoplay allowfullscreen></iframe>"+
-                        "</div>"+
-                        "</div>");
-                resizeYoutube();
-                $("#uncommercialbutton").click(function(){
-                    console.log("clicked");
-                    $('#reel').html("");
-                });
-
-            };
-
-            $("#narrativebutton").click(summonNarrativeReel);
-            $("#commercialbutton").click(summonCommercialReel);
-
-        })
-    </script>
-
-
-
 
 </body>
 </html>
