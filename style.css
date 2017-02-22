@@ -212,3 +212,11 @@ nav li a:hover{
     background: rgba(0,0,0,0.3);
 }
 
+.content ul li ul li{
+    font-size: x-small;
+}
+
+.content h4{
+    margin-top: 50px;
+}
+
